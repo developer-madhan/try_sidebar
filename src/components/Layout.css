@@ -1,0 +1,88 @@
+/* src/components/Layout.css */
+:root {
+    --sidebar-width-closed: 60px;
+    --sidebar-width-open: 200px;
+  }
+  
+  .layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  
+  .sidebar {
+    background-color: #ddd;
+    padding: 10px;
+    transition: transform 0.3s ease, width 0.3s ease; /* Added width transition */
+    z-index: 900;
+    position: fixed;
+    top: 50px;
+    bottom: 50px;
+    left: -var(--sidebar-width-closed);
+    width: var(--sidebar-width-closed); /* Initial width when closed */
+  }
+  
+  .sidebar.open {
+    transform: translateX(0); /* Adjusted to show the full sidebar when open */
+    width: var(--sidebar-width-open); /* Width when open */
+  }
+  
+  .main {
+    flex: 1;
+    padding: 20px;
+    margin-top: 50px;
+    margin-left: calc(var(--sidebar-width-closed) + 10px); /* Adjusted using the initial width of the sidebar */
+    transition: margin-left 0.3s ease; /* Added transition for smooth animation */
+  }
+  
+  /* Adjust main content margin when sidebar is open */
+  .sidebar.open + .main {
+    margin-left: calc(var(--sidebar-width-open) + 10px); /* Adjusted using the width of the open sidebar */
+  }
+  
+  /* Hover effect on sidebar */
+  .sidebar:hover {
+    width: var(--sidebar-width-open); /* Sidebar expands on hover */
+  }
+  
+  /* Adjust main content margin when sidebar is hovered over and expanded */
+  .sidebar:hover + .main {
+    margin-left: calc(var(--sidebar-width-open) + 10px); /* Adjusted using the width of the open sidebar */
+  }
+  
+  
+  .toggle-btn {
+    padding: 5px 10px;
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .toggle-btn:hover {
+    background-color: #777;
+  }
+  

@@ -1,4 +1,4 @@
-// src/components/Layout.js
+
 import React, { useState } from 'react';
 import './Layout.css';
 
@@ -18,7 +18,22 @@ const Layout = ({ children }) => {
         </button>
       </header>
       <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
-        Sidebar
+        <ul className="tree-menu">
+          <li>
+            Parent 1
+            <ul>
+              <li>Child 1</li>
+              <li>Child 2</li>
+            </ul>
+          </li>
+          <li>
+            Parent 2
+            <ul>
+              <li>Child 3</li>
+              <li>Child 4</li>
+            </ul>
+          </li>
+        </ul>
       </aside>
       <main className="main">{children}</main>
       <footer className="footer">Footer</footer>

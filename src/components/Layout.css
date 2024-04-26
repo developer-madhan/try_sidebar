@@ -86,3 +86,20 @@
     background-color: #777;
   }
   
+  .tree-menu {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .tree-menu li {
+    position: relative;
+  }
+  
+  .tree-menu li ul {
+    margin-left: 20px;
+    display: none;
+  }
+  
+  .tree-menu li:hover > ul {
+    display: block;
+  }
